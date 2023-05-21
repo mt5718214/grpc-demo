@@ -4,11 +4,12 @@ clean:
 gen:
 	@$(MAKE) clean
 	protoc \
+	-I=protos \
 	--go_out=pb \
 	--go_opt=paths=source_relative \
 	--go-grpc_out=pb \
 	--go-grpc_opt=paths=source_relative \
-	processor_message.proto
+	protos/*.proto \
 
 run:
 	go run main.go
